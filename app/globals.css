@@ -3,13 +3,146 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --color-1: 0 100% 63%;
+  --color-2: 270 100% 63%;
+  --color-3: 210 100% 63%;
+  --color-4: 195 100% 63%;
+
+  --duration: 2s;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-color-1: hsl(var(--color-1));
+  --color-color-2: hsl(var(--color-2));
+  --color-color-3: hsl(var(--color-3));
+  --color-color-4: hsl(var(--color-4));
+  --color-color-5: hsl(var(--color-5));
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-border-beam: border-beam calc(var(--duration) * 1s) infinite linear;
+  --animate-aurora-border: aurora-border 20s ease-in-out infinite;
+  --animate-aurora-1: aurora-1 15s ease-in-out infinite;
+  --animate-aurora-2: aurora-2 18s ease-in-out infinite;
+  --animate-aurora-3: aurora-3 16s ease-in-out infinite;
+  --animate-aurora-4: aurora-4 17s ease-in-out infinite;
+  --animate-ripple: ripple var(--duration, 2s) ease calc(var(--i, 0) * 0.2s)
+    infinite;
+
+  @keyframes ripple {
+    0%,
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+  }
+
+  @keyframes border-beam {
+    100% {
+      offset-distance: 100%;
+    }
+  }
+
+  @keyframes aurora-border {
+    0%,
+    100% {
+      border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
+    }
+    25% {
+      border-radius: 47% 29% 39% 49% / 61% 19% 66% 26%;
+    }
+    50% {
+      border-radius: 57% 23% 47% 72% / 63% 17% 66% 33%;
+    }
+    75% {
+      border-radius: 28% 49% 29% 100% / 93% 20% 64% 25%;
+    }
+  }
+
+  @keyframes aurora-1 {
+    0%,
+    100% {
+      top: 0;
+      right: 0;
+    }
+    50% {
+      top: 50%;
+      right: 25%;
+    }
+    75% {
+      top: 25%;
+      right: 50%;
+    }
+  }
+
+  @keyframes aurora-2 {
+    0%,
+    100% {
+      top: 0;
+      left: 0;
+    }
+    60% {
+      top: 75%;
+      left: 25%;
+    }
+    85% {
+      top: 50%;
+      left: 50%;
+    }
+  }
+
+  @keyframes aurora-3 {
+    0%,
+    100% {
+      bottom: 0;
+      left: 0;
+    }
+    40% {
+      bottom: 50%;
+      left: 25%;
+    }
+    65% {
+      bottom: 25%;
+      left: 50%;
+    }
+  }
+
+  @keyframes aurora-4 {
+    0%,
+    100% {
+      bottom: 0;
+      right: 0;
+    }
+    50% {
+      bottom: 25%;
+      right: 40%;
+    }
+    90% {
+      bottom: 50%;
+      right: 25%;
+    }
+  }
+}
+@keyframes accordion-down {
+  from {
+    height: "0";
+  }
+  to {
+    height: "var(--radix-accordion-content-height)";
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: "var(--radix-accordion-content-height)";
+  }
+  to {
+    height: "0";
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +152,58 @@
   }
 }
 
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+  }
+}
+
+@layer utilities {
+  .animate-shine {
+    animation: shine 2s linear infinite;
+    background: linear-gradient(
+      45deg,
+      transparent 25%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 75%
+    );
+    background-size: 200% 200%;
+  }
+
+  @keyframes shine {
+    from {
+      background-position: 0% 0%;
+    }
+    to {
+      background-position: 200% 200%;
+    }
+  }
+  .animate-ripple {
+    animation: var(--animate-ripple);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .animate-ripple::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    padding-bottom: 150%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+::-webkit-scrollbar {
+  display: none;
+}
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
 }
