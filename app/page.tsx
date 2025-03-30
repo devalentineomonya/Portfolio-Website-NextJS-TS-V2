@@ -8,6 +8,9 @@ import FeatureSection from "@/sections/features/features";
 import LoadingScreen from "@/components/common/loading-screen";
 import Navbar from "@/components/common/navbar";
 import FAQ from "@/sections/faq/Faq";
+import ContactForm from "@/sections/contact/contact";
+import Footer from "@/components/common/footer";
+
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -22,7 +25,9 @@ const Home = () => {
       <About />
       <Projects />
       <FeatureSection />
-      <FAQ/>
+      <FAQ />
+      <ContactForm />
+      <Footer />
     </div>
   );
 };

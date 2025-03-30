@@ -61,11 +61,14 @@ const ProjectCard = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300 }}
+
             className="group flex items-center gap-x-3 py-2 px-4 rounded-lg border
                      bg-stone-100 focus:rounded-full focus:outline-none focus:ring-[1.5px] focus:ring-transparent focus:ring-offset-blue-500
                       focus-visible:ring-offset-2 focus-visible:ring-offset-blue-500 dark:border-x-0 dark:border-b-0 dark:border-t-[1px]
                        dark:border-neutral-500/40 dark:bg-neutral-900 dark:bg-none dark:focus:ring-offset-blue-500
                         dark:focus-visible:ring-offset-blue-500"
+
+
           >
             View Project
             <ArrowRight

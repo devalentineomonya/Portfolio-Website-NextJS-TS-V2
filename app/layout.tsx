@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Abel } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 
 const abel = Abel({ weight: "400", subsets: ["latin"] });
 
@@ -17,9 +19,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={abel.className}>
-        <main className="flex items-center justify-center p-4">
-          <div className="max-w-7xl w-full text-white">{children}</div>
-        </main>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <main className="flex items-center justify-center p-4">
+            <div className="max-w-7xl w-full text-white">{children}</div>
+          </main>
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );
