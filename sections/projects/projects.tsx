@@ -31,7 +31,7 @@ const Projects = () => {
       whileInView="visible"
       id="projects"
       viewport={{ once: false, amount: 0.2 }}
-      className="flex md:justify-center items-center flex-col min-h-screen px-4 scroll-mt-20"
+      className="flex md:justify-center items-center flex-col px-4 scroll-mt-20"
     >
       <motion.p
         variants={titleVariants}

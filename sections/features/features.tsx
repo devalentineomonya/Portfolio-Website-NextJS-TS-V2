@@ -114,7 +114,7 @@ const Features = () => {
   return (
     <div
       id="features"
-      className="min-h-screen max-w-7xl mx-auto flex flex-col md:justify-center items-center px-4 pt-12 md:pt-0"
+      className=" max-w-7xl mx-auto flex flex-col md:justify-center items-center px-4 pt-12 md:pt-0"
     >
       <motion.div
         initial="hidden"
