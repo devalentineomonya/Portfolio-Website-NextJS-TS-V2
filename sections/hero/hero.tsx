@@ -40,7 +40,7 @@ const Hero = () => {
 
   return (
     <motion.div
-      className=" flex flex-col px-4 scroll-mt-20 my-6"
+      className="min-h-[calc(100vh-7rem)] flex flex-col px-4 scroll-mt-20 my-6"
       initial="hidden"
       id="hero"
       whileInView="visible"
