@@ -86,7 +86,7 @@ export default function ContactForm() {
   return (
     <div
       id="contact"
-      className="container mx-auto px-4 py-12 md:py-24 max-w-6xl"
+      className="container mx-auto px-4 py-12 md:py-24 max-w-6xl scroll-mt-20"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         <div className="space-y-6">

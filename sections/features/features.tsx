@@ -114,7 +114,7 @@ const Features = () => {
   return (
     <div
       id="features"
-      className=" max-w-7xl mx-auto flex flex-col md:justify-center items-center px-4 pt-12 md:pt-0"
+      className="scroll-mt-20 max-w-7xl mx-auto flex flex-col md:justify-center items-center px-4 pt-12 md:pt-0 my-12"
     >
       <motion.div
         initial="hidden"

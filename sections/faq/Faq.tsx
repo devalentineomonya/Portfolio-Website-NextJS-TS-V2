@@ -74,7 +74,7 @@ export default function FAQ() {
   };
 
   return (
-    <div className="w-full py-16 md:py-24">
+    <div className="w-full py-16 md:py-24 ">
       <div className=" px-4 md:px-0 mx-auto max-w-6xl">
         <motion.div
           ref={headerRef}
