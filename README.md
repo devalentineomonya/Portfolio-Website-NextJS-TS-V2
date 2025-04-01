@@ -1,80 +1,121 @@
+# Portfolio Website - Next.js & TypeScript
 
-# Minimalistic - Portfolio Website
+![Next.js](https://img.shields.io/badge/Next.js-15.2.0-black?logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.2.2-blue?logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-06B6D4?logo=tailwind-css)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-![Available for Work Banner](https://img.shields.io/badge/Available-For%20Work-brightgreen) ![Next.js](https://img.shields.io/badge/Next.js-15.2.x-000000?logo=next.js) ![Sanity](https://img.shields.io/badge/Sanity-CMS-blue) ![Framer Motion](https://img.shields.io/badge/Animations-Framer%20Motion-purple)
+A modern, performant, and responsive portfolio website built with **Next.js 13**, **TypeScript**, and **Tailwind CSS**. Designed to showcase professional work, skills, and projects with optimal SEO and accessibility.
 
-A modern portfolio website for product designer **John Doe**, featuring smooth animations and CMS-powered content. Built with cutting-edge technologies to showcase professional projects and availability status.
+![Portfolio Preview](./public/screenshot.png)
 
-![Portfolio Screenshot](./public/screenshot.png)
+## Features
 
-## ✨ Features
-- **Dynamic "Available for Work" Banner**  
-  Prominent status indicator with animated transitions.
-- **Project Showcase**  
-  - Expense Tracker: Firebase-powered financial management tool
-  - Cinemaz: Centralized movie platform
-  - Shopping Cart: Streamlined e-commerce system
-  - Ride: (Upcoming project)
-- **Interactive UI**  
-  - Smooth page transitions & hover animations
-  - Contact options with email copy functionality
-  - Responsive design across all devices
-- **CMS Integration**  
-  Easily update content through Sanity Studio
+- **Responsive Design**: Optimized for mobile, tablet, and desktop.
+- **Dark/Light Mode**: Toggle between themes with persistent user preference.
+- **Project Showcase**: Filterable grid layout for projects with dynamic routing.
+- **Skills Section**: Interactive tech stack display with progress indicators.
+- **Contact Form**: Integrated with Formspree/EmailJS for message handling.
+- **SEO Optimization**: Metadata, Open Graph tags, and dynamic sitemap.
+- **Performance**: 90+ Lighthouse scores (uses Next.js Image, code splitting).
+- **Animations**: Smooth transitions with Framer Motion.
+- **Markdown Blog Support**: (Optional) MDX-based blog system via Contentlayer.
 
-## 🛠 Technologies
-- **Framework**: Next.js 15.2.x (App Router)
-- **CMS**: Sanity.io
-- **Animations**: Framer Motion
-- **Styling**: Tailwind CSS
+## Technologies
+
+- **Framework**: Next.js 13 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS + CSS Modules
+- **Animation**: Framer Motion
 - **Icons**: React Icons
-- **Deployment**: Vercel (Recommended)
+- **Form Handling**: React Hook Form + Formspree/EmailJS
+- **Content**: (Optional) Contentlayer for MDX
+- **Deployment**: Vercel
 
-## 🚀 Installation
-1. Clone repository:
+## Installation
+
+1. **Clone the repository**
    ```bash
    git clone https://github.com/devalentineomonya/Portfolio-Website-NextJS-TS-V2.git
+   cd Portfolio-Website-NextJS-TS-V2
    ```
-2. Install dependencies:
+
+2. **Install dependencies**
    ```bash
    npm install
-   ```
-3. Set up environment variables:
-   ```env
-   NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
-   NEXT_PUBLIC_SANITY_DATASET=production
+   # or
+   yarn install
    ```
 
-## 🔧 Sanity Configuration
-1. Install Sanity CLI:
-   ```bash
-   npm install -g @sanity/cli
-   ```
-2. Navigate to Sanity folder:
-   ```bash
-   cd studio
-   ```
-3. Start Sanity Studio:
-   ```bash
-   sanity start
-   ```
-4. Configure your content schemas in `studio/schemas`
 
-## 🖥 Running the App
-```bash
-npm run dev
+3. **Run Development Server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+   Visit `http://localhost:3000` or `127.0.0.1:3000`
+
+## Configuration
+
+### Personalize Content
+Edit the data files in `src/data/`:
+- `personalInfo.ts`: Update name, bio, social links
+- `projects.ts`: Add/remove projects with images in `public/images/projects/`
+- `skills.ts`: Modify skills list with proficiency levels
+
+```ts
+// Example: src/data/projects.ts
+export const projects = [
+  {
+    title: "Project Name",
+    description: "Project description...",
+    tags: ["React", "TypeScript"],
+    image: "/images/projects/project-1.jpg",
+    repo: "https://github.com/...",
+    demo: "https://live-demo.com"
+  }
+]
 ```
 
-## 🤝 Contributing
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
+### Styling
+- Modify global styles in `src/styles/globals.css`
+- Use Tailwind classes directly in components
+- Add custom colors in `tailwind.config.js`
+
+### Theming
+Toggle dark mode logic in `src/components/ThemeToggle.tsx`
+
+## Deployment
+
+### Vercel (Recommended)
+1. Push your code to a GitHub/GitLab/Bitbucket repository
+2. Import the repo on [Vercel](https://vercel.com/new)
+3. Add environment variables during setup
+4. Deploy! 🚀
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdevalentineomonya%2FPortfolio-Website-NextJS-TS-V2)
+
+### Other Platforms
+Adjust `next.config.js` if needed for static export:
+```bash
+npm run build && npm run export
+```
+
+## Contributing
+
+Contributions are welcome! Follow these steps:
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/your-feature`)
+3. Commit changes (`git commit -m 'Add some feature'`)
+4. Push to the branch (`git push origin feature/your-feature`)
 5. Open a Pull Request
 
-## 📄 License
-Distributed under the MIT License. See `LICENSE` for more information.
+## License
 
-## 📧 Contact
-John Doe - [valomosh254@gmail.com](mailto:valomosh254@gmail.com)  
-Project Link: [https://github.com/devalentineomonya/Portfolio-Website-NextJS-TS-V2](https://github.com/devalentineomonya/Portfolio-Website-NextJS-TS-V2)
+Distributed under the MIT License. See `LICENSE` for details.
+
+## Acknowledgements
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Docs](https://tailwindcss.com/docs/installation)
