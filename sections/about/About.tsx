@@ -1,16 +1,18 @@
 import Image from "next/image";
 import { Mail, Linkedin, Instagram, Globe } from "lucide-react";
 import { motion } from "framer-motion";
+import { Card } from "@/components/ui/card";
 
 const StatCard = ({ value, label }: { value: string; label: string }) => (
   <motion.div
     whileHover={{ y: -8, scale: 1.02 }}
     whileTap={{ scale: 0.98 }}
     transition={{ type: "tween", duration: 0.3 }}
-    className="p-4 group z-10 flex flex-col select-none items-start justify-start rounded-md border border-b-0 bg-stone-100 cursor-pointer dark:border-x-0 dark:border-b-0 dark:border-t-[1px] dark:border-neutral-500/40 dark:bg-neutral-900"
   >
-    <h3 className="text-amber-500 text-2xl font-medium">{value}</h3>
-    <p className="text-zinc-400 text-sm">{label}</p>
+    <Card className="gap-2  p-4 border-b-0 border-gray-200 bg-stone-100 dark:border-neutral-500/40 dark:bg-neutral-900">
+      <h3 className="text-amber-500 text-2xl font-medium">{value}</h3>
+      <p className="text-muted-foreground text-sm">{label}</p>
+    </Card>
   </motion.div>
 );
 
@@ -26,7 +28,7 @@ const SocialLink = ({
     whileTap={{ scale: 0.9 }}
     transition={{ type: "spring", stiffness: 300 }}
     href={href}
-    className="z-10 flex h-12 w-12 items-center justify-center rounded-full border border-b-0 bg-stone-100 dark:border-neutral-500/40 dark:bg-neutral-900 cursor-pointer"
+    className="z-10 flex h-12 w-12 items-center justify-center rounded-full border border-gray-300 border-b-0 bg-stone-100 dark:border-neutral-500/40 dark:bg-neutral-900 cursor-pointer"
   >
     {icon}
   </motion.a>
@@ -84,7 +86,7 @@ const About = () => {
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true}}
+      viewport={{ once: true }}
       id="about"
       className="flex justify-end items-center flex-col px-4 my-24"
     >
@@ -128,7 +130,7 @@ const About = () => {
               </motion.h2>
 
               <motion.div
-                className="text-zinc-300 text-lg space-y-"
+                className="text-foreground"
                 variants={{
                   visible: {
                     transition: { staggerChildren: 0.05 },
@@ -161,7 +163,9 @@ const About = () => {
                       visible: { opacity: 1, y: 0 },
                     }}
                     className={`inline-block ${
-                      index % 2 === 1 ? "text-white font-medium mx-1" : ""
+                      index % 2 === 1
+                        ? "text-muted-foreground font-medium mx-1"
+                        : ""
                     }`}
                   >
                     {text}
@@ -193,7 +197,7 @@ const About = () => {
 
             {/* Social Links */}
             <motion.div variants={itemVariants} className="space-y-6">
-              <motion.h3 className="text-zinc-200 text-xl font-medium">
+              <motion.h3 className="text-muted-foreground text-xl font-medium">
                 Connect with me
               </motion.h3>
               <motion.div
@@ -201,13 +205,19 @@ const About = () => {
                 className="flex gap-4 flex-wrap"
               >
                 {[
-                  <Mail key="mail" className="w-6 h-6 text-zinc-300" />,
-                  <Linkedin key="linkedin" className="w-6 h-6 text-zinc-300" />,
+                  <Mail key="mail" className="w-6 h-6 text-muted-foreground" />,
+                  <Linkedin
+                    key="linkedin"
+                    className="w-6 h-6 text-muted-foreground"
+                  />,
                   <Instagram
                     key="instagram"
-                    className="w-6 h-6 text-zinc-300"
+                    className="w-6 h-6 text-muted-foreground"
                   />,
-                  <Globe key="website" className="w-6 h-6 text-zinc-300" />,
+                  <Globe
+                    key="website"
+                    className="w-6 h-6 text-muted-foreground"
+                  />,
                 ].map((icon, index) => (
                   <motion.div
                     key={index}

@@ -43,7 +43,7 @@ const Projects = () => {
 
       <motion.h1
         variants={containerVariants}
-        className="text-center text-white text-3xl font-light leading-tight mb-8 flex flex-wrap items-center justify-center gap-x-2 gap-y-1"
+        className="text-center  text-3xl font-light leading-tight mb-8 flex flex-wrap items-center justify-center gap-x-2 gap-y-1"
       >
         <motion.span variants={titleVariants} className="inline-block">
           Discover
@@ -68,7 +68,7 @@ const Projects = () => {
             key={item}
             variants={itemVariants}
             transition={{ type: "spring", stiffness: 100 }}
-            className="w-full"
+            className="w-full py-2"
           >
             <ProjectCard />
           </motion.div>

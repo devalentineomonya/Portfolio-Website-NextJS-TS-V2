@@ -31,7 +31,7 @@ export default function Footer() {
       variants={containerVariants}
       className="w-full pt-12 text-black shadow border-t"
     >
-      <div className="container mx-auto px-4 pt-12 md:pt-24 max-w-6xl">
+      <div className="container mx-auto px-4 pt-12 md:pt-24 max-w-7xl">
         <motion.div
           className="flex flex-col md:flex-row justify-between mb-20"
           variants={containerVariants}
@@ -60,22 +60,32 @@ export default function Footer() {
             className="flex flex-col md:flex-row gap-3 items-start md:items-center"
             variants={itemVariants}
           >
-            <Link href="#" passHref legacyBehavior>
+            <Link
+              href="https://devalentineomonya.medium.com/"
+              target="_blank"
+              passHref
+              legacyBehavior
+            >
               <motion.a
                 className="px-4 py-2 border border-gray-300 rounded-full text-xs uppercase tracking-wider dark:text-gray-300"
                 {...hoverScale}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                Related Projects
+                My Blogs
               </motion.a>
             </Link>
-            <Link href="#" passHref legacyBehavior>
+            <Link
+              href="https://youtube.com/devminutes"
+              target="_blank"
+              passHref
+              legacyBehavior
+            >
               <motion.a
                 className="px-4 py-2 border border-gray-300 rounded-full text-xs uppercase tracking-wider dark:text-gray-300"
                 {...hoverScale}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                About Studio
+                Youtube Channel
               </motion.a>
             </Link>
           </motion.div>
@@ -104,15 +114,14 @@ export default function Footer() {
                 </motion.a>
               </Link>
             </div>
-          <motion.div
-            className="flex items-center gap-4"
-            whileHover={{ scale: 1.05 }}
-          >
-            <span className="text-sm">© 2024</span>
-            <div className="w-2 h-2 bg-black rounded-full"></div>
-          </motion.div>
+            <motion.div
+              className="flex items-center gap-4"
+              whileHover={{ scale: 1.05 }}
+            >
+              <span className="text-sm">© 2024</span>
+              <div className="w-2 h-2 bg-black rounded-full"></div>
+            </motion.div>
           </div>
-
         </motion.div>
       </div>
     </motion.footer>

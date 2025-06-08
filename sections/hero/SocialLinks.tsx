@@ -1,16 +1,16 @@
-"use client"
-import Link from "next/link"
-import { motion } from "framer-motion"
+"use client";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
-type SocialLinksProps = { orientation?: "vertical" | "horizontal" }
+type SocialLinksProps = { orientation?: "vertical" | "horizontal" };
 
 const SocialLinks = ({ orientation = "vertical" }: SocialLinksProps) => {
   const socialLinks = [
-    { label: "Facebook", href: "#" },
-    { label: "LinkedIn", href: "#" },
-    { label: "Behance", href: "#" },
-    { label: "Dribbble", href: "#" },
-  ]
+    { label: "GitHub", href: "https://github.com/devalentineomonya" },
+    { label: "LinkedIn", href: "https://linkedin.com/in/devalentineomonya" },
+    { label: "Instagram", href: "https://instagram.com/devalentineomonya" },
+    { label: "X-(Twitter)", href: "https://x.com/devalentine_" },
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -21,7 +21,7 @@ const SocialLinks = ({ orientation = "vertical" }: SocialLinksProps) => {
         delayChildren: orientation === "vertical" ? 0.8 : 0.7,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, x: 20 },
@@ -34,14 +34,14 @@ const SocialLinks = ({ orientation = "vertical" }: SocialLinksProps) => {
         damping: 10,
       },
     },
-  }
+  };
 
   const linkHoverVariants = {
     hover: {
       scale: 1.05,
-      transition: { type: "spring", stiffness: 300, damping: 10 }
-    }
-  }
+      transition: { type: "spring", stiffness: 300, damping: 10 },
+    },
+  };
 
   const lineVariants = {
     rest: {
@@ -53,16 +53,16 @@ const SocialLinks = ({ orientation = "vertical" }: SocialLinksProps) => {
       backgroundColor: "#ff2975",
       scaleX: orientation === "vertical" ? 1.2 : 1,
       scaleY: orientation === "horizontal" ? 1.5 : 1,
-      transition: { duration: 0.3 }
-    }
-  }
+      transition: { duration: 0.3 },
+    },
+  };
 
   const textVariants = {
     hover: {
       backgroundPosition: orientation === "vertical" ? "0% 100%" : "100% 0%",
-      transition: { duration: 1.5, repeat: Infinity }
-    }
-  }
+      transition: { duration: 1.5, repeat: Infinity },
+    },
+  };
 
   return (
     <motion.div
@@ -84,6 +84,7 @@ const SocialLinks = ({ orientation = "vertical" }: SocialLinksProps) => {
         >
           <Link
             href={link.href}
+            target="_blank"
             className={`hover:text-white transition-colors flex items-center ${
               orientation === "vertical"
                 ? "justify-end gap-x-2"
@@ -96,7 +97,7 @@ const SocialLinks = ({ orientation = "vertical" }: SocialLinksProps) => {
             >
               {orientation === "vertical" && (
                 <motion.span
-                  className="bg-gradient-to-b from-[#ffd319] via-[#ff2975] to-[#fff] bg-clip-text text-transparent bg-[length:200%_200%]"
+                  className="bg-gradient-to-b from-[#ffd319] via-[#ff2975] to-[#fff] bg-clip-text text-transparent bg-[length:200%_200%] mr-2"
                   variants={textVariants}
                 >
                   {link.label}
@@ -125,7 +126,7 @@ const SocialLinks = ({ orientation = "vertical" }: SocialLinksProps) => {
         </motion.div>
       ))}
     </motion.div>
-  )
-}
+  );
+};
 
-export default SocialLinks
+export default SocialLinks;

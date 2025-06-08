@@ -7,7 +7,8 @@ import { ThemeProvider } from "@/components/ui/theme-provider";
 const abel = Abel({ weight: "400", subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Devalentine's Portfolio",
-  description: "A showcase of my web development projects, skills, and experience in software engineering.",
+  description:
+    "A showcase of my web development projects, skills, and experience in software engineering.",
 };
 
 export default function RootLayout({
@@ -24,9 +25,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="flex items-center justify-center p-4">
-            <div className="max-w-7xl w-full text-white">{children}</div>
-          </main>
+          <main>{children}</main>
           <Toaster />
         </ThemeProvider>
       </body>

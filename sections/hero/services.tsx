@@ -19,8 +19,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ number, title, description })
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <AuroraText className="text-5xl mb-4">{number}</AuroraText>
-      <h3 className="font-medium mb-2 text-xl text-amber-200" >{title}</h3>
-      <p className="text-gray-400">{description}</p>
+      <h3 className="font-medium mb-2 text-xl text-amber-400 dark:text-amber-200" >{title}</h3>
+      <p className="text-muted-foreground">{description}</p>
     </motion.div>
   )
 }
@@ -76,7 +76,7 @@ const Services = () => {
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <h2 className="text-4xl text-amber-500">Crafting Digital Excellence</h2>
-        <p className="mt-6 leading-relaxed md:max-w-md text-gray-300">
+        <p className="mt-6 leading-relaxed md:max-w-md text-muted-foreground">
           I Build Innovative Digital Products, Impactful Brands, And Seamless Experiences That Drive Growth And
           Engagement. From Concept To Launch, We Turn Ideas Into Reality.
         </p>

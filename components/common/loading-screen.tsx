@@ -26,14 +26,14 @@ export default function LoadingScreen({
     if (currentLanguageIndex < languages.length) {
       const timer = setTimeout(() => {
         setCurrentLanguageIndex(currentLanguageIndex + 1);
-      }, 1000); // Each language shows for 1 second
+      }, 1000);
 
       return () => clearTimeout(timer);
     } else {
-      // All languages have been shown
+
       const timer = setTimeout(() => {
         setIsComplete(true);
-        setTimeout(onLoadingComplete, 500); // Fade out animation time
+        setTimeout(onLoadingComplete, 500);
       }, 500);
 
       return () => clearTimeout(timer);
@@ -44,7 +44,7 @@ export default function LoadingScreen({
     <AnimatePresence>
       {!isComplete && (
         <motion.div
-          className="fixed inset-0 bg-black flex items-center justify-center z-50"
+          className="fixed inset-0 flex items-center justify-center z-50"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}

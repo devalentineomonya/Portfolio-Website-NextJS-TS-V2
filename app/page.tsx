@@ -19,16 +19,18 @@ const Home = () => {
   }
 
   return (
-    <div className="bg-dark relative">
+    <>
       <Navbar />
-      <Hero />
-      <About />
-      <Projects />
-      <FeatureSection />
-      <FAQ />
-      <ContactForm />
-      <Footer />
-    </div>
+      <div className="max-w-7xl mx-auto relative">
+        <Hero />
+        <About />
+        <Projects />
+        <FeatureSection />
+        <FAQ />
+        <ContactForm />
+        <Footer />
+      </div>
+    </>
   );
 };
 

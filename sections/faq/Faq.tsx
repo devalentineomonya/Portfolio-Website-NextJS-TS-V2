@@ -15,31 +15,32 @@ interface FAQItem {
   answer: string;
 }
 
+
 const faqs: FAQItem[] = [
   {
-    question: "What services do you offer as a designer?",
+    question: "What services do you offer as a developer?",
     answer:
-      "I specialize in a wide range of design services, including branding, web design, UI/UX design, and visual identity creation. My goal is to deliver designs that not only look great but also function seamlessly, enhancing the user experience and conveying your brand message clearly.",
+      "I specialize in building modern, scalable web applications and APIs. My services include full-stack development, backend architecture, API integration, performance optimization, and deploying secure, maintainable applications using technologies like Go, TypeScript, and modern frameworks such as Next.js and NestJS.",
   },
   {
-    question: "What is your design process like?",
+    question: "What is your development process like?",
     answer:
-      "My design process typically involves five key stages: discovery (understanding your needs and goals), research (analyzing your industry, competitors, and target audience), conceptualization (developing initial design concepts), refinement (iterating based on feedback), and finalization (delivering the completed design assets with documentation).",
+      "My development workflow typically follows a structured process: discovery (understanding your business goals), planning (defining architecture and choosing the right tech stack), implementation (coding and integrating features), testing (ensuring performance and security), and deployment (launching and maintaining the application).",
   },
   {
-    question: "How long does a typical design project take?",
+    question: "How long does a typical development project take?",
     answer:
-      "Project timelines vary depending on scope and complexity. A basic logo design might take 1-2 weeks, while a comprehensive website design could take 4-8 weeks. During our initial consultation, I'll provide a more accurate timeline based on your specific project requirements.",
+      "Timelines vary based on complexity and features. A simple MVP might take 2–14 weeks, while a more complex platform could require 6–12 weeks. I provide a tailored timeline after understanding your requirements during the initial consultation.",
   },
   {
-    question: "Can I be involved in the design process?",
+    question: "Can I be involved in the development process?",
     answer:
-      "I believe in collaborative design. Your input is valuable throughout the process, and I schedule regular check-ins to gather feedback and ensure the design aligns with your vision. My goal is to create a partnership that leads to the best possible outcome.",
+      "Absolutely. I prioritize clear communication and collaboration throughout the project. You’ll receive regular updates, demos, and opportunities to provide feedback to ensure the final product aligns with your vision and goals.",
   },
   {
-    question: "Do you offer revisions or post-project support?",
+    question: "Do you offer revisions or post-launch support?",
     answer:
-      "Yes, all projects include a set number of revision rounds to ensure your complete satisfaction. After project completion, I offer 30 days of support to address any questions or minor adjustments. For ongoing support, I also offer maintenance packages tailored to your needs.",
+      "Yes. Every project includes revision rounds to refine functionality and UX based on your input. Post-launch, I provide 30 days of free support for bug fixes and minor tweaks. For long-term needs, I offer maintenance and feature update packages.",
   },
 ];
 
@@ -75,7 +76,7 @@ export default function FAQ() {
 
   return (
     <div className="w-full py-16 md:py-24 ">
-      <div className=" px-4 md:px-0 mx-auto max-w-6xl">
+      <div className=" px-4 md:px-0 mx-auto max-w-7xl">
         <motion.div
           ref={headerRef}
           initial={{ opacity: 0, y: -20 }}

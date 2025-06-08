@@ -7,6 +7,9 @@ import Image from "next/image";
 import Services from "@/sections/hero/services";
 import { BorderBeam } from "@/components/ui/beam-border";
 import { SparklesText } from "@/components/ui/sparkles-text";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   const containerVariants: Variants = {
@@ -67,34 +70,50 @@ const Hero = () => {
               />
             </motion.div>
 
-            <motion.button
-              className="px-8 py-3 bg-white text-black rounded-full font-light w-40 hover:bg-opacity-80 transition-all"
+            <motion.div
               variants={itemVariants}
-              whileHover={{
-                scale: 1.05,
-                backgroundColor: "#ff2975",
-                color: "white",
-              }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Let&apos;s Talk
-            </motion.button>
+              <Button
+                asChild
+                size={"lg"}
+                className="px-8 py-4 rounded-full w-40 font-light transition-transform duration-200 group"
+              >
+                <Link href="#contact">
+                  Let&apos;s Talk
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
+            </motion.div>
 
-            <motion.button
-              className="relative px-8 py-3 border border-gray-700 rounded-full font-light w-52 hover:bg-gray-background/70 cursor-pointer shadow-md"
+            <motion.div
               variants={itemVariants}
-              whileHover={{ scale: 1.05, borderColor: "#ffb900" }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Download Resume
-              <BorderBeam
-                colorFrom="#ff2975"
-                colorTo="#ffb900"
-                duration={10}
-                size={90}
-                borderWidth={3}
-              />
-            </motion.button>
+              <Button
+                asChild
+                variant="outline"
+                size={"lg"}
+                className="relative overflow-hidden rounded-full border-2 px-8 py-4 w-52 group border-none shadow-md"
+              >
+                <Link
+                  href="https://v1.devalentine.me/resume.pdf"
+                  target="_blank"
+                  className="flex items-center gap-x-2"
+                >
+                  <span className="relative z-10">Download Resume</span>
+                  <BorderBeam
+                    colorFrom="#ff2975"
+                    colorTo="#ffb900"
+                    duration={10}
+                    borderWidth={2}
+                    size={100}
+                  />
+                </Link>
+              </Button>
+            </motion.div>
           </motion.div>
         </motion.div>
 
