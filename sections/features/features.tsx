@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { ny } from "@/lib/utils";
 import { Ripple } from "@/components/magicui/ripple";
 
@@ -7,17 +8,46 @@ export default function FeaturesSection() {
                       focus-visible:ring-offset-2 focus-visible:ring-offset-blue-500 dark:border-x-0 dark:border-b-0 dark:border-t-[1px]
                        dark:border-neutral-500/40 dark:bg-neutral-900 dark:bg-none dark:focus:ring-offset-blue-500
                         dark:focus-visible:ring-offset-blue-500`;
+
+  // Animation variants
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const staggerContainer = {
+    visible: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
   return (
     <section>
       <div className="py-32">
         <div className="mx-auto px-6 max-w-7xl">
           <div className="relative">
-            <div className="relative z-10 grid gap-3 grid-cols-6">
-              <div
+            <motion.div
+              className="relative z-10 grid gap-3 grid-cols-6"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-20px" }}
+              variants={staggerContainer}
+            >
+              <motion.div
                 className={ny(
                   CARD,
                   "card variant-outlined col-span-full lg:col-span-2 overflow-hidden flex relative"
                 )}
+                variants={cardVariants}
               >
                 <Ripple />
                 <div className=" size-fit m-auto relative">
@@ -37,16 +67,18 @@ export default function FeaturesSection() {
                       100%
                     </span>
                   </div>
-                  <h2 className="mt-6 text-center font-semibold text-3xl text-title">
+                  <h2 className="mt-6 text-center font-semibold text-3xl  text-amber-500 group-hover:text-amber-600">
                     Job Flexibility
                   </h2>
                 </div>
-              </div>
-              <div
+              </motion.div>
+
+              <motion.div
                 className={ny(
                   CARD,
                   " col-span-full sm:col-span-3 lg:col-span-2 overflow-hidden relative "
                 )}
+                variants={cardVariants}
               >
                 <Ripple />
                 <div>
@@ -103,7 +135,7 @@ export default function FeaturesSection() {
                     </svg>
                   </div>
                   <div className="mt-6 text-center relative z-10 space-y-2">
-                    <h2 className="text-lg font-medium transition group-hover:text-secondary-950 dark:text-white">
+                    <h2 className="text-lg font-medium transition group-hover:text-secondary-950  text-amber-500 group-hover:text-amber-600">
                       Security First Approach
                     </h2>
                     <p className="">
@@ -113,12 +145,14 @@ export default function FeaturesSection() {
                     </p>
                   </div>
                 </div>
-              </div>
-              <div
+              </motion.div>
+
+              <motion.div
                 className={ny(
                   CARD,
                   "col-span-full sm:col-span-3 lg:col-span-2 overflow-hidden relative "
                 )}
+                variants={cardVariants}
               >
                 <Ripple />
                 <div>
@@ -216,12 +250,14 @@ export default function FeaturesSection() {
                     </p>
                   </div>
                 </div>
-              </div>
-              <div
+              </motion.div>
+
+              <motion.div
                 className={ny(
                   CARD,
                   "col-span-full lg:col-span-3 overflow-hidden relative "
                 )}
+                variants={cardVariants}
               >
                 <Ripple />
                 <div className="grid sm:grid-cols-2">
@@ -306,12 +342,14 @@ export default function FeaturesSection() {
                     </svg>
                   </div>
                 </div>
-              </div>
-              <div
+              </motion.div>
+
+              <motion.div
                 className={ny(
                   CARD,
                   " col-span-full lg:col-span-3 overflow-hidden relative "
                 )}
+                variants={cardVariants}
               >
                 <Ripple />
                 <div className="h-full grid sm:grid-cols-2">
@@ -391,8 +429,8 @@ export default function FeaturesSection() {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </div>

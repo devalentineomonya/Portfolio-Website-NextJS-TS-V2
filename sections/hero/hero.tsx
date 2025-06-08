@@ -96,7 +96,7 @@ const Hero = () => {
                 asChild
                 variant="outline"
                 size={"lg"}
-                className="relative overflow-hidden rounded-full border-2 px-8 py-4 w-52 group border-none shadow-md"
+                className="relative overflow-hidden rounded-full border-2 px-8 py-4 w-52 group  shadow-md"
               >
                 <Link
                   href="https://v1.devalentine.me/resume.pdf"
