@@ -5,7 +5,7 @@ import { motion, Variants } from "framer-motion";
 import SocialLinks from "@/sections/hero/SocialLinks";
 import Image from "next/image";
 import Services from "@/sections/hero/services";
-import { BorderBeam } from "@/components/ui/beam-border";
+import { BeamButton } from "@/components/ui/beam-button";
 import { SparklesText } from "@/components/ui/sparkles-text";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -91,28 +91,17 @@ const Hero = () => {
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              className="w-52"
             >
-              <Button
-                asChild
-                variant="outline"
-                size={"lg"}
-                className="relative overflow-hidden rounded-full border-2 px-8 py-4 w-52 group  shadow-md"
-              >
+              <BeamButton>
                 <Link
                   href="https://v1.devalentine.me/resume.pdf"
                   target="_blank"
                   className="flex items-center gap-x-2"
                 >
                   <span className="relative z-10">Download Resume</span>
-                  <BorderBeam
-                    colorFrom="#ff2975"
-                    colorTo="#ffb900"
-                    duration={10}
-                    borderWidth={2}
-                    size={100}
-                  />
                 </Link>
-              </Button>
+              </BeamButton>
             </motion.div>
           </motion.div>
         </motion.div>

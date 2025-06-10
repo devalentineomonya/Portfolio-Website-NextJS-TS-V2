@@ -10,6 +10,7 @@ import Navbar from "@/components/common/navbar";
 import FAQ from "@/sections/faq/Faq";
 import ContactForm from "@/sections/contact/contact";
 import Footer from "@/components/common/footer";
+import { Ripple } from "@/components/magicui/ripple";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -29,6 +30,13 @@ const Home = () => {
         <FAQ />
         <ContactForm />
         <Footer />
+      </div>
+
+      <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background">
+        <p className="z-10 whitespace-pre-wrap text-center text-5xl font-medium tracking-tighter text-white">
+          Ripple
+        </p>
+        <Ripple />
       </div>
     </>
   );

@@ -31,7 +31,7 @@ export default function FeaturesSection() {
   };
 
   return (
-    <section>
+    <section id="features">
       <div className="py-32">
         <div className="mx-auto px-6 max-w-7xl">
           <div className="relative">

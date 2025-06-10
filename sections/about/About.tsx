@@ -88,7 +88,7 @@ const About = () => {
       whileInView="visible"
       viewport={{ once: true }}
       id="about"
-      className="flex justify-end items-center flex-col px-4 my-24"
+      className="flex justify-end items-center flex-col px-4 my-12"
     >
       <div className="max-w-7xl w-full">
         <motion.div

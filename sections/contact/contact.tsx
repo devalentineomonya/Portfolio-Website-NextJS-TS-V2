@@ -20,10 +20,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { ArrowRight, Dribbble, Instagram, Twitter } from "lucide-react";
 import { toast } from "sonner";
+import { AnimatedSubmitButton } from "@/components/ui/animated-submit-button";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
   email: z.string().email({ message: "Please enter a valid email address" }),
+  subject: z
+    .string()
+    .min(8, { message: "Subject must be at least 10 characters" }),
   message: z
     .string()
     .min(10, { message: "Message must be at least 10 characters" }),
@@ -32,7 +36,9 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 export default function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState<
+    "loading" | "success" | "error" | "idle"
+  >("idle");
 
   const headerRef = useRef(null);
   const bioRef = useRef(null);
@@ -67,20 +73,33 @@ export default function ContactForm() {
       name: "",
       email: "",
       message: "",
+      subject: "",
     },
   });
 
   const onSubmit = async (data: FormValues) => {
-    setIsSubmitting(true);
+    setIsSubmitting("loading");
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+      setIsSubmitting("success");
       toast("Thank you for your message. We'll get back to you soon.");
       form.reset();
     } catch (error) {
       toast("Your message couldn't be sent. Please try again.");
+      setIsSubmitting("error");
     } finally {
-      setIsSubmitting(false);
+      setTimeout(() => setIsSubmitting("idle"), 2000);
     }
   };
 
@@ -188,7 +207,7 @@ export default function ContactForm() {
                         <Input
                           placeholder="Your Name"
                           {...field}
-                          disabled={isSubmitting}
+                          disabled={isSubmitting === "loading"}
                         />
                       </FormControl>
                       <FormMessage />
@@ -208,7 +227,7 @@ export default function ContactForm() {
                         <Input
                           placeholder="Email Address"
                           {...field}
-                          disabled={isSubmitting}
+                          disabled={isSubmitting === "loading"}
                         />
                       </FormControl>
                       <FormMessage />
@@ -216,7 +235,25 @@ export default function ContactForm() {
                   )}
                 />
               </div>
-
+              <FormField
+                control={form.control}
+                name="subject"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>
+                      Subject <span className="text-red-500">*</span>
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Message Subject"
+                        {...field}
+                        disabled={isSubmitting === "loading"}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
               <FormField
                 control={form.control}
                 name="message"
@@ -230,7 +267,7 @@ export default function ContactForm() {
                         placeholder="Your message here"
                         rows={8}
                         {...field}
-                        disabled={isSubmitting}
+                        disabled={isSubmitting === "loading"}
                       />
                     </FormControl>
                     <FormMessage />
@@ -238,23 +275,13 @@ export default function ContactForm() {
                 )}
               />
 
-              <Button
-                type="submit"
-                className="w-full group flex items-center justify-center gap-x-3 py-6 px-4 rounded-lg border
-                     bg-stone-100 focus:rounded-full focus:outline-none focus:ring-[1.5px] focus:ring-transparent focus:ring-offset-blue-500
-                      focus-visible:ring-offset-2 focus-visible:ring-offset-blue-500 dark:border-x-0 dark:border-b-0 dark:border-t-[1px]
-                       dark:border-neutral-500/40 dark:bg-neutral-900 dark:bg-none dark:focus:ring-offset-blue-500
-                        dark:focus-visible:ring-offset-blue-500 hover:bg-amber-500/10 transition-colors text-foreground"
-                disabled={isSubmitting}
-              >
-                <span>Send a message</span>
-                <motion.span
-                  animate={isSubmitting ? { rotate: 180 } : {}}
-                  transition={{ repeat: Infinity, duration: 0.5 }}
-                >
-                  <ArrowRight className="h-4 w-4" />
-                </motion.span>
-              </Button>
+              {AnimatedSubmitButton({
+                status: isSubmitting,
+                type: "submit",
+                className:
+                  "w-full group flex items-center justify-center gap-x-3 py-6 px-4 rounded-lg border bg-stone-100 focus:rounded-full focus:outline-none focus:ring-[1.5px] focus:ring-transparent focus:ring-offset-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-500 dark:border-x-0 dark:border-b-0 dark:border-t-[1px] dark:border-neutral-500/40 dark:bg-neutral-900 dark:bg-none dark:focus:ring-offset-blue-500 dark:focus-visible:ring-offset-blue-500 hover:bg-amber-500/10 transition-colors text-foreground",
+                disabled: isSubmitting === "loading",
+              })}
             </form>
           </Form>
         </motion.div>
